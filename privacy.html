@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="showPopup('privacy-popup')">
+    <header>
+        <h1>Privacy Policy</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Privacy Policy</h2>
+        <p>Click the button below to view our privacy policy</p>
+        <button onclick="showPopup('privacy-popup')" class="popup-btn">View Privacy Policy</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2024-2025 Sodium</p>
+    </footer>
+
+    <div id="privacy-popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('privacy-popup')">&times;</span>
+            <h2>Privacy Policy</h2>
+            <p>Introduction<br>
+                Welcome to Sodium. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Discord bot designed to help provide combos for retrieving forgotten account passwords. By using the Service, you agree to the collection and use of information in accordance with this policy.
+            </p>
+            <p>Information We Collect</p>
+            <p>Personal Data<br>
+                While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. Personally identifiable information may include:
+                <ul>
+                    <li>Discord Username</li>
+                    <li>Discord ID</li>
+                    <li>Email Address (optional)</li>
+                </ul>
+            </p>
+            <p>Usage Data<br>
+                We may also collect information that your Discord client sends whenever you use our Service. This Usage Data may include information such as the commands you enter and the time and date of your activity.
+            </p>
+            <p>Use of Data<br>
+                Sodium uses the collected data for various purposes:
+                <ul>
+                    <li>To provide and maintain our Service</li>
+                    <li>To notify you about changes to our Service</li>
+                    <li>To allow you to participate in interactive features of our Service when you choose to do so</li>
+                    <li>To provide customer support</li>
+                    <li>To gather analysis or valuable information so that we can improve our Service</li>
+                    <li>To monitor the usage of our Service</li>
+                    <li>To detect, prevent, and address technical issues</li>
+                </ul>
+            </p>
+            <p>Disclosure of Data<br>
+                We may disclose your personal information in the good faith belief that such action is necessary to:
+                <ul>
+                    <li>Comply with a legal obligation</li>
+                    <li>Protect and defend the rights or property of Sodium</li>
+                    <li>Prevent or investigate possible wrongdoing in connection with the Service</li>
+                    <li>Protect the personal safety of users of the Service or the public</li>
+                    <li>Protect against legal liability</li>
+                </ul>
+            </p>
+            <p>Security of Data<br>
+                The security of your data is important to us, but remember that no method of transmission over the Internet is completely secure.
+            </p>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
