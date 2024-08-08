@@ -20,7 +20,7 @@ header {
 header h1 {
     margin: 0;
     font-size: 1.5rem;
-    color: #f5ba13;
+    color: #b01212;
 }
 
 nav ul {
@@ -31,7 +31,7 @@ nav ul {
 }
 
 nav a {
-    color: #f5ba13;
+    color: #b01212;
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s, transform 0.3s;
@@ -58,7 +58,7 @@ footer {
 }
 
 button.popup-btn {
-    background-color: #f5ba13;
+    background-color: #b01212;
     color: #1f1f1f;
     border: none;
     padding: 0.5rem 1rem;
@@ -69,7 +69,7 @@ button.popup-btn {
 }
 
 button.popup-btn:hover {
-    background-color: #dba212;
+    background-color: #b01212;
     transform: scale(1.05);
 }
 
@@ -106,7 +106,7 @@ button.popup-btn:hover {
     right: 10px;
     font-size: 1.5rem;
     cursor: pointer;
-    color: #f5ba13;
+    color: #b01212;
     transition: transform 0.3s, color 0.3s;
     z-index: 1; /* Ensure the close button is above the scrollbar */
 }
@@ -126,7 +126,7 @@ button.popup-btn:hover {
 }
 
 .email-link {
-    color: #f5ba13;
+    color: #b01212;
     text-decoration: none;
     transition: color 0.3s;
 }
