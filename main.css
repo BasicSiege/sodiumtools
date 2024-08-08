@@ -1,0 +1,205 @@
+body {
+    font-family: 'Courier Prime', Arial, sans-serif;
+    background-color: #141618;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+@font-face {
+    font-family: 'Courier Prime';
+    src: url('fonts/CourierPrime-Regular.woff2') format('woff2'), /* Adjust the path as necessary */
+         url('fonts/CourierPrime-Regular.woff') format('woff'); /* Adjust the path as necessary */
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, .button, .username, .socials a {
+    font-family: 'Courier Prime', Courier, monospace; /* Fallback to Courier or monospace */
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.content {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+}
+
+.gallery {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #111213;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+.username {
+    font-size: 27px;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.gallery img:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.callsign {
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.message {
+    position: absolute;
+    color: #ffffff;
+    font-size: 18px;
+    display: none;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px;
+    border-radius: 5px;
+    pointer-events: none;
+}
+
+.profile {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.pfp {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px #000000;
+}
+
+/* Profile Name and Callsign Spacing */
+.profile-name,
+.callsign {
+    width: 35px;
+    height: 35px;
+    margin: 10px 0; /* Increased margin for more space */
+}
+
+/* Button Styles */
+.button {
+    padding: 16px 30px; /* Increase padding for larger buttons */
+    margin: 10px 0; /* Space between buttons */
+    background-color: #ce1717; /* Button background color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 38px; /* Increase font size for larger text */
+}
+
+.button:hover {
+    background-color: #b01212; /* Darker shade on hover */
+}
+
+/* Social Links */
+.socials a {
+    color: white;
+    margin: 0 5px;
+    transition: color 0.4s ease-in-out;
+    font-size: 28px;
+}
+
+.socials a:hover {
+    color: #ce1717;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #141618;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ce1717;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ce1717;
+}
+
+/* Profile Card Styles */
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 150px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+/* background particles */
+
+canvas {
+    display: block; /* Ensures no extra space around the canvas */
+}
+
+/* ---- particles.js container ---- */
+
+#particles-js {
+    position: fixed; /* Use fixed to keep it in place during scrolling */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    z-index: -2; /* Send it to the back */
+    color: #b01212;
+}

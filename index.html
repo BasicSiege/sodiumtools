@@ -3,28 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sodium - bot / tools</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta id="meta-name" property="og:title" content="siege">
+    <link rel="icon" href="ggg.gif" type="image/gif">
+    <meta id="meta-description" property="og:description" content="Sieges vouches.">
+    <title>siege.lol</title>
+    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
+    <link rel="icon" href="ggg.gif">
+    <meta name="theme-color" content="#080808">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://kit.fontawesome.com/0e15170c4f.js" crossorigin="anonymous"></script>
+    <link href="main.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Sodium</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="terms.html">Terms of Service</a></li>
-                <li><a href="privacy.html">Privacy Policy</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="particles-js"></div>
+    <div class="profile">
+        <img class="pfp" src="ggg.gif" alt="Profile Picture">
+        <div class="username"><b>Siege</b></div>
+        <img class="callsign" src="dwc.png">
+        <div class="socials">
+            <a href="https://discord.com/users/1216226450739429377" target="_blank"><i class="fab fa-discord"></i></a>
+            <a href="https://paypal.me/siegelolz" target="_blank"><i class="fa-brands fa-paypal"></i></a>
+            <a href="https://open.spotify.com/user/31mrclvblzfw2dwxom3cbzwffcqm" target="_blank"><i class="fa-brands fa-spotify"></i></a>
+            <a href="https://t.me/siegelol" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+            <a href="https://live.blockcypher.com/ltc/address/LRKmUitjChTxU6NmQGhdrNJCmx326A5H64/" target="_blank"><i class="fa-solid fa-litecoin-sign"></i></a>
+            <a href="https://live.blockcypher.com/btc/address/bc1ql05486punqf6stvwksm03j8lxqmg8a3exz7w0n/" target="_blank"><i class="fa-brands fa-btc"></i></a>
+            <a href="https://live.blockcypher.com/eth/address/6acb12ad7ed0fdf33f1ef34b844bcfa55e9a9efd/" target="_blank"><i class="fa-brands fa-ethereum"></i></a>
+        </div>
+        <br><br>
+        <img src="https://discord.c99.nl/widget/theme-4/1216226450739429377.png" style="width: 300px;">
+        <br><br><br>
+        <iframe style="width:400px; margin-bottom: 20px; margin-top:-20px" class="rounded-md w-full sm:w-3/6" src="https://open.spotify.com/embed/track/5dfMZKLa5AmXmsMmkQgu0t?si=11fc24bf1d7a41ba?&amp;theme=0" height="80" frameborder="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
 
-    <main>
-        <h2>Home Page</h2>
-        <p>This homepage is temporary as we are waiting on new website improvments. while you wait please take the time to view our Terms of Service and Privacy policy.</p>
-    </main>
+    <h1 id="counter">0 vouches</h1>
 
-    <footer>
-        <p>&copy; 2024-2025 Sodium</p>
-    </footer>
+    <div class="gallery" id="gallery"></div>
+
+    <div id="lightbox" class="lightbox" onclick="document.getElementById('lightbox').style.display='none'">
+        <img id="lightboxImage" src="" alt="">
+        <div class="message" id="lightboxMessage">Click anywhere to close</div>
+    </div>
+    
+    <script>
+        let count = 0;
+        const target = 194;
+        const counterElement = document.getElementById('counter');
+
+        const countUp = () => {
+            if (count < target) {
+                count++;
+                counterElement.textContent = `${count}+ vouches`;
+                setTimeout(countUp, 30);
+            } else {
+                counterElement.textContent = `${target}+ vouches`;
+            }
+        };
+
+        countUp();
+
+        const imageNames = [];
+        for (let i = 1; i <= 46; i++) {
+            imageNames.push(`image${i}.png`);
+        }
+
+        const gallery = document.getElementById('gallery');
+
+        imageNames.forEach(image => {
+            const imgElement = document.createElement('img');
+            imgElement.src = `images/${image}`;
+            imgElement.alt = image;
+            imgElement.onclick = () => {
+                document.getElementById('lightboxImage').src = imgElement.src;
+                document.getElementById('lightbox').style.display = 'flex';
+                const message = document.getElementById('lightboxMessage');
+                message.style.display = 'block';
+            };
+            gallery.appendChild(imgElement);
+        });
+
+        const lightbox = document.getElementById('lightbox');
+        lightbox.onmousemove = (event) => {
+            const message = document.getElementById('lightboxMessage');
+            message.style.left = `${event.clientX + 10}px`;
+            message.style.top = `${event.clientY + 10}px`;
+        };
+
+        const lightboxImage = document.getElementById('lightboxImage');
+        lightboxImage.onmouseover = () => {
+            document.getElementById('lightboxMessage').style.display = 'none';
+        };
+        lightboxImage.onmouseout = () => {
+            document.getElementById('lightboxMessage').style.display = 'block';
+        };
+    </script>
+    <script src="disabledev.js"></script>
+    <script src="disable.js"></script>
+    <script src="ffont.js"></script>
+    <script src="title.js"></script>
+    <script src="particles.js"></script>
+</div>  
+
 </body>
 </html>
