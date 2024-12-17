@@ -18,20 +18,15 @@ particlesJS("particles-js", {
           },
           "polygon": {
               "nb_sides": 5
-          },
-          "image": {
-              "src": "img/github.svg",
-              "width": 100,
-              "height": 100
           }
       },
       "opacity": {
-          "value": 0.48927153781200905,
+          "value": 0.48,
           "random": false,
           "anim": {
               "enable": true,
-              "speed": 0.2,
-              "opacity_min": 0,
+              "speed": 0.1,
+              "opacity_min": 0.1,
               "sync": false
           }
       },
@@ -40,30 +35,24 @@ particlesJS("particles-js", {
           "random": true,
           "anim": {
               "enable": true,
-              "speed": 2,
-              "size_min": 0,
+              "speed": 1,
+              "size_min": 0.5,
               "sync": false
           }
       },
       "line_linked": {
-          "enable": false,
-          "distance": 150,
-          "color": "#ffffff", // Color of the lines (if enabled)
-          "opacity": 0.4,
-          "width": 1
+          "enable": false
       },
       "move": {
           "enable": true,
-          "speed": 0.2,
-          "direction": "none",
+          "speed": 0.5,  // Reduced speed for slower movement
+          "direction": "top-right",  // Gentle diagonal movement
           "random": true,
           "straight": false,
           "out_mode": "out",
           "bounce": false,
           "attract": {
-              "enable": false,
-              "rotateX": 600,
-              "rotateY": 1200
+              "enable": false
           }
       }
   },
@@ -81,12 +70,6 @@ particlesJS("particles-js", {
           "resize": true
       },
       "modes": {
-          "grab": {
-              "distance": 400,
-              "line_linked": {
-                  "opacity": 1
-              }
-          },
           "bubble": {
               "distance": 83.91608391608392,
               "size": 1,
@@ -94,17 +77,74 @@ particlesJS("particles-js", {
               "opacity": 1,
               "speed": 3
           },
-          "repulse": {
-              "distance": 200,
-              "duration": 0.4
-          },
           "push": {
               "particles_nb": 4
-          },
-          "remove": {
-              "particles_nb": 2
           }
       }
   },
   "retina_detect": true
+});
+
+// Audio Visualization Add-on
+document.addEventListener('DOMContentLoaded', () => {
+    const audioElement = document.querySelector('iframe');
+    const particlesContainer = document.getElementById('particles-js');
+    
+    // Create Audio Context
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    
+    // Function to create audio visualizer
+    const createAudioVisualizer = (stream) => {
+        const analyser = audioContext.createAnalyser();
+        analyser.fftSize = 256;
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+        
+        const particles = document.querySelectorAll('#particles-js .particle');
+        
+        const updateParticles = () => {
+            analyser.getByteFrequencyData(dataArray);
+            
+            // Calculate average frequency
+            const averageFrequency = dataArray.reduce((a, b) => a + b, 0) / bufferLength;
+            
+            // Modify particle colors and sizes based on audio
+            particles.forEach((particle, index) => {
+                // Create a pulsing effect based on audio intensity
+                const intensity = dataArray[index % bufferLength] / 255;
+                particle.style.opacity = 0.3 + (intensity * 0.7);
+                particle.style.transform = `scale(${1 + (intensity * 0.5)})`;
+                
+                // Glow effect
+                if (intensity > 0.5) {
+                    particle.style.boxShadow = `0 0 10px rgba(176, 18, 18, ${intensity})`;
+                } else {
+                    particle.style.boxShadow = 'none';
+                }
+            });
+            
+            requestAnimationFrame(updateParticles);
+        };
+        
+        updateParticles();
+    };
+    
+    // Check if audio is playing
+    const checkAudioPlaying = () => {
+        const iframe = document.querySelector('iframe');
+        if (iframe) {
+            // Listen for play event on Spotify iframe
+            iframe.contentWindow.postMessage('{"method":"addEventListener","value":"play"}', '*');
+            
+            // Listen for messages from iframe
+            window.addEventListener('message', (event) => {
+                if (event.data && event.data.method === 'play') {
+                    // Audio started playing
+                    createAudioVisualizer();
+                }
+            });
+        }
+    };
+    
+    checkAudioPlaying();
 });
