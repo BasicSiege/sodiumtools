@@ -16,6 +16,12 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
+    <script>
+      // After 5 seconds (5000 ms), redirect
+      setTimeout(() => {
+        window.location.href = "https://basicsiege.github.io/goodbye/";
+      }, 10000);
+    </script>
     <div id="particles-js"></div>
     <div class="profile">
         <img class="pfp" src="ggg.gif" alt="Profile Picture">
@@ -34,6 +40,28 @@
             <a href="https://live.blockcypher.com/eth/address/6acb12ad7ed0fdf33f1ef34b844bcfa55e9a9efd/" target="_blank"><i class="fa-brands fa-ethereum"></i></a>
         </div>
         <h5>"It's easier to ask for forgiveness than permission" - Grace Hopper</h5>
+        <style>
+            .glow-text {
+              color: red;
+              font-weight: bold;
+              
+              /* Glow animation */
+              animation: glow 1s ease-in-out infinite alternate;
+            }
+            
+            /* Keyframes for glowing in & out */
+            @keyframes glow {
+              0% {
+                text-shadow: 0 0 10px red;
+              }
+              100% {
+                text-shadow: 0 0 20px red;
+              }
+            }
+        </style>
+        <h5 class="glow-text">
+          YOU WILL BE REDIRECTED IN 10 SECONDS TO VIEW AN IMPORTANT MESSAGE
+        </h5>
         <br><br>
         <img src="https://discord.c99.nl/widget/theme-4/1216226450739429377.png" style="width: 300px;">
         <br><br><br>
